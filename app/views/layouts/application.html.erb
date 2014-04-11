@@ -7,8 +7,25 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="container">
+  <div class="navbar navbar-text">
+    <center>
+      <%= flash[:notice] %>
+      <%= flash[:alert] %>
+    </center>
+  </div>
+  <div class="navbar navbar-text pull-right">
+    <% if current_user %>
+      <%= link_to "Logout", logout_path %>
+      <%= link_to "Add Product", new_product_path %>
+    <% else %>
+      <%= link_to "Login", login_path %>
+    <% end %>
+
+  </div>
 
 <%= yield %>
+</div>
 
 </body>
 </html>
