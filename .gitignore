@@ -14,3 +14,7 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+#Ignore all added images
+/public/system/products/images/*
+/app/assets/images/*
