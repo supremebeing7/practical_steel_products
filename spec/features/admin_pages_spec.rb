@@ -6,7 +6,6 @@ describe Admin do
       create_admin_and_sign_in
       page.should have_content 'Add Product'
     end
-
     it 'throws an error for wrong credentials' do
       admin = FactoryGirl.create :admin
       visit new_session_path
@@ -18,7 +17,7 @@ describe Admin do
   end
   context 'add additional admins' do
     it 'allows owner to create another admin' do
-      create_admin_and_sign_in
+      create_owner_and_sign_in
       visit new_admin_path
       fill_in 'Username', with: Faker::Internet.user_name
       password = Faker::Internet.password
@@ -26,6 +25,38 @@ describe Admin do
       fill_in 'Password confirmation', with: password
       click_button 'Create Admin'
       page.should have_content 'Admin created.'
+    end
+    it 'does not allow regular admins to create another admin' do
+      create_admin_and_sign_in
+      visit new_admin_path
+      page.should have_content 'Not authorized.'
+    end
+  end
+  context 'view admins' do
+    it 'allows owner to view all other admins' do
+      admin = FactoryGirl.create :admin
+      create_owner_and_sign_in
+      visit admins_path
+      page.should have_content admin.username
+    end
+    it 'does not allow regular admins to view all admins' do
+      create_admin_and_sign_in
+      visit admins_path
+      page.should have_content 'Not authorized.'
+    end
+  end
+  context 'delete admins' do
+    it 'allows owner to delete other admins' do
+      admin = FactoryGirl.create :admin
+      create_owner_and_sign_in
+      visit admins_path
+      click_link "#{admin.id}"
+      page.should_not have_content admin.username
+    end
+    it 'allows admins to not delete other admins' do
+      create_admin_and_sign_in
+      visit admins_path
+      page.should have_content 'Not authorized.'
     end
   end
 end

@@ -6,4 +6,12 @@ FactoryGirl.define do
     password 'password'
     password_confirmation 'password'
   end
+
+  factory :owner, :class => Admin do
+    username 'Frank'
+    password 'password'
+    password_confirmation 'password'
+    owner true
+  end
 end
+
