@@ -11,7 +11,7 @@ gem 'bootstrap-sass'
 gem 'paperclip'
 gem 'bcrypt'
 gem 'smarter_csv'
-
+gem 'masonry-rails'
 
 
 group :development do

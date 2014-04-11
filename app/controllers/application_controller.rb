@@ -15,6 +15,6 @@ class ApplicationController < ActionController::Base
   end
 
   def check_owner
-    redirect_to root_path, alert: "Not authorized." if !current_user.owner
+    redirect_to root_path, alert: "Not authorized." if current_user.nil? || !current_user.owner
   end
 end

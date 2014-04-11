@@ -1,6 +1,20 @@
 <h1> Practical Steel Products </h1>
 
-<% @products.each do |product| %>
-  <p><%= link_to (image_tag product.image.url(:thumb)), product_path(product), id: product.id %></p>
-  <p><%= link_to product.name, product_path(product) %></p>
+
+
+
+<div id="masonry-container" class="transitions-enabled clearfix rtl">
+<% @products.each_with_index do |product, index| %>
+
+  <% if index % 3 == 0 %>
+    <div class="box col2">
+  <% elsif index % 2 == 0 %>
+    <div class="box col3">
+  <% else %>
+    <div class="box col4">
+  <% end %>
+      <p><%= link_to (image_tag product.image.url(:medium)), product_path(product), id: product.id %></p>
+      <p><%= link_to product.name, product_path(product) %></p>
+    </div>
 <% end %>
+</div>

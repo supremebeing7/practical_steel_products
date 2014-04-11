@@ -15,6 +15,9 @@
         <%= flash[:alert] %>
       </center>
     </div>
+    <div class="navbar navbar-text pull-left">
+      <%= link_to "Products", products_path %>
+    </div>
     <div class="navbar navbar-text pull-right">
       <% if current_user %>
         <% if current_user.owner? %>

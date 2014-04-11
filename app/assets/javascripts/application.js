@@ -14,3 +14,14 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require masonry/jquery.masonry
+
+$(document).ready(function() {
+  $('#masonry-container').masonry({
+    itemSelector: '.box',
+    columnWidth: 100,
+    isAnimated: !Modernizr.csstransitions,
+    isRTL: true
+  });
+
+});

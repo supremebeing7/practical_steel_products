@@ -5,7 +5,7 @@ Hello::Application.routes.draw do
   get 'logout', to: 'sessions#destroy', as: 'logout'
 
   resources :sessions
-  resources :admins
+  resources :admins, except: [:show]
   resources :products
   resources :product_uploads
 end
