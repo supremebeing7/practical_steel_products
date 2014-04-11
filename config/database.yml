@@ -1,0 +1,14 @@
+
+development:
+  adapter: postgresql
+  database: hello_development
+
+
+test:
+  adapter: postgresql
+  database: hello_test
+
+
+production:
+  adapter: postgresql
+  database: hello_production
