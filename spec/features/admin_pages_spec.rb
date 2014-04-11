@@ -16,4 +16,16 @@ describe Admin do
       page.should have_content 'Wrong email or password, jerk'
     end
   end
+  context 'add additional admins' do
+    it 'allows owner to create another admin' do
+      create_admin_and_sign_in
+      visit new_admin_path
+      fill_in 'Username', with: Faker::Internet.user_name
+      password = Faker::Internet.password
+      fill_in 'Password', with: password
+      fill_in 'Password confirmation', with: password
+      click_button 'Create Admin'
+      page.should have_content 'Admin created.'
+    end
+  end
 end

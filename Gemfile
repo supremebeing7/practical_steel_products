@@ -12,6 +12,7 @@ gem 'paperclip'
 gem 'bcrypt'
 
 
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
@@ -23,6 +24,7 @@ group :test, :development do
   gem 'factory_girl_rails'
   gem 'capybara'
   gem 'launchy'
+  gem 'faker'
 end
 
 group :test do

@@ -10,7 +10,7 @@ class AdminsController < ApplicationController
   def create
     @admin = Admin.new(admin_params)
     if @admin.save
-      redirect_to root_path, notice: "Admin created"
+      redirect_to admins_path, notice: "Admin created."
     else
       render 'new'
     end
