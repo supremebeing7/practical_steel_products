@@ -1,6 +1,6 @@
 <h1> Practical Steel Products </h1>
 
 <% @products.each do |product| %>
-  <p><%= link_to (image_tag product.image.url(:thumb)), product_path(product) %></p>
+  <p><%= link_to (image_tag product.image.url(:thumb)), product_path(product), id: product.id %></p>
   <p><%= link_to product.name, product_path(product) %></p>
 <% end %>

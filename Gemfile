@@ -10,6 +10,7 @@ gem 'turbolinks'
 gem 'bootstrap-sass'
 gem 'paperclip'
 gem 'bcrypt'
+gem 'smarter_csv'
 
 
 

@@ -7,4 +7,5 @@ Hello::Application.routes.draw do
   resources :sessions
   resources :admins
   resources :products
+  resources :product_uploads
 end

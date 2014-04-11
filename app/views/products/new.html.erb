@@ -1,6 +1,10 @@
 <%= content_for :title, "Add Product" %>
 
 <h1>Add a Product</h1>
+<p> or <%= link_to "Batch Upload", new_product_upload_path %> </p>
 
 <%= render 'layouts/errors', object: @product %>
 <%= render 'form' %>
+
+
+
