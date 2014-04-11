@@ -1,0 +1,30 @@
+<%= form_for(@product) do |f| %>
+
+  <div class="row">
+    <div class='form-group'>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+  </div>
+  <div class="row">
+    <div class='form-group'>
+      <%= f.label :price %>
+      <%= f.text_field :price %>
+    </div>
+  </div>
+  <div class="row">
+    <div class='form-group'>
+      <%= f.label :description %>
+      <%= f.text_field :description %>
+    </div>
+  </div>
+  <div class="row">
+    <div class='form-group'>
+      <%= f.label :image %>
+      <%= f.file_field :image %>
+    </div>
+  </div>
+  <br />
+  <br />
+  <%= f.submit class: "btn btn-success" %>
+<% end %>
