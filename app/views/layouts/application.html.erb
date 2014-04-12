@@ -9,14 +9,16 @@
 <body>
 <div class="container">
   <div class="row">
-    <div class="navbar navbar-text">
-      <center>
-        <%= flash[:notice] %>
-        <%= flash[:alert] %>
-      </center>
-    </div>
     <div class="navbar navbar-text pull-left">
       <%= link_to "Products", products_path %>
+    </div>
+    <div class="navbar navbar-text">
+      <center>
+        <% if !flash[:notice].nil? %>
+          <%= safe_join(flash[:notice], "<br/>".html_safe) %>
+        <% end %>
+        <%= flash[:alert] %>
+      </center>
     </div>
     <div class="navbar navbar-text pull-right">
       <% if current_user %>
