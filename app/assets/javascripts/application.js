@@ -19,7 +19,7 @@
 $(document).ready(function() {
   $('#masonry-container').masonry({
     itemSelector: '.box',
-    columnWidth: 100,
+    columnWidth: 140,
     isAnimated: !Modernizr.csstransitions,
     isRTL: true
   });

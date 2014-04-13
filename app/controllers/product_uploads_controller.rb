@@ -9,12 +9,12 @@ class ProductUploadsController < ApplicationController
     after = Product.all.count
     if @product_upload.length > 0
       column_names = @product_upload.first.keys
-      flash[:notice] = ["Data in column(s) #{column_names.join(', ')} not added."]
+      flash[:notice] = "Data in column(s) #{column_names.join(', ')} not added."
     end
     if before == after
-      flash[:notice] << "All products already in database."
+      flash[:alert] = "All products already in database."
     else
-      flash[:notice] << "Batch upload completed, #{after - before} without errors."
+      flash[:alert] = "Batch upload completed, #{after - before} without errors."
     end
     redirect_to products_path
   end

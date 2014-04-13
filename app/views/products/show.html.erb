@@ -1,7 +1,14 @@
 <%= content_for :title, "#{@product.name}" %>
 
 <h1><%= @product.name %></h1>
+<h2><%= "$#{sprintf('%.2f', @product.price)}" %></h2>
 
-<%= image_tag @product.image.url(:medium) %>
-
-<%= link_to "Delete", product_path(@product), method: "delete" %>
+<div class="row">
+  <%= image_tag @product.image.url(:medium) %>
+</div>
+<div class="row">
+  <%= @product.description %>
+</div>
+<div class="row">
+  <%= link_to "Delete", product_path(@product), method: "delete" %>
+</div>

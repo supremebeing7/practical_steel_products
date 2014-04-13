@@ -8,9 +8,9 @@
 
   <% if index % 3 == 0 %>
     <div class="box col2">
-  <% elsif index % 2 == 0 %>
+  <% elsif index % 3 == 1 %>
     <div class="box col3">
-  <% else %>
+  <% elsif index % 3 == 2%>
     <div class="box col4">
   <% end %>
       <p><%= link_to (image_tag product.image.url(:medium)), product_path(product), id: product.id %></p>
